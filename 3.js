@@ -4,7 +4,7 @@ B1)合作，需要院⻓1批准；同理，不同院的学生，需要校⻓批�
 要合作时，找到对应的批准人*/
 
 class Node {
-    constructor(name, parent = null) {
+    constructor(name, parent) {
         this.name = name;
         this.parent = parent;
     }
@@ -31,16 +31,16 @@ const studentD2 = new Node('学生D2', teacherD);
 const studentD3 = new Node('学生D3', teacherD);
 
 
-function findApprover(student1, student2) {
+function findApprover(studentA1, studentC2) {
     const visited = new Set();
 
-    let currentNode = student1;
+    let currentNode = studentA1;
     while (currentNode) {
         visited.add(currentNode);
         currentNode = currentNode.parent;
     }
 
-    currentNode = student2;
+    currentNode = studentC2;
     while (currentNode) {
         if (visited.has(currentNode)) {
             return currentNode;
@@ -51,4 +51,4 @@ function findApprover(student1, student2) {
     return null;
 }
 
-console.log(findApprover(studentA1, studentB2).name);
+console.log(findApprover(studentA1, studentC2).name);

@@ -13,8 +13,8 @@ function findHighestScores(scores, k) {
 
 console.log(findHighestScores(scores, k));*/
 
-const scores = [60, 70, 80, 90, 100];
-const k = 2;
+/*const scores = [60, 70, 80, 90, 100, 90, 80, 70, 60];
+const k = 3;
 
 function findHighestScores(scores, k) {
     const maxScores = [];
@@ -36,4 +36,20 @@ function findHighestScores(scores, k) {
     return maxScores;
 }
 
-console.log(findHighestScores(scores, k));
+console.log(findHighestScores(scores, k));*/
+
+const scoreList = [60, 70, 80, 90, 100, 90, 80, 70, 60];
+const k = 3;
+
+function findHighestScores(scoreList, k) {
+    const newScoreList = [];
+    for (let score of scoreList) {
+        if (!newScoreList.includes(score)) {
+            newScoreList.push(score);
+        }
+    }
+    newScoreList.sort((a, b) => b - a);
+    return newScoreList.slice(0, k);
+}
+
+console.log(findHighestScores(scoreList, k));
